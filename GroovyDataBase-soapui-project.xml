@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="408d6287-bcef-425d-a5cb-1c61950ef84a" activeEnvironment="Default" name="GroovyDataBase" resourceRoot="" soapui-version="5.6.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:testSuite id="272c8234-95ac-46b0-9d7e-15ec3b79c87f" name="TestSuite 1"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase id="08f9f4bd-e832-47c7-a9ae-24cc47ce3d45" failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase 1" searchProperties="true"><con:settings/><con:testStep type="groovy" name="Groovy Script" id="abe6ffd8-c46b-4ab6-9ef3-4a9c158c96bf"><con:settings/><con:config><script>// Import the Groovy class required to work with SQL databases.
+import groovy.sql.Sql
+
+// Set up database connection properties.
+/* IMPORTANT: must start with jdbc:mysql:// */
+def url = 'jdbc:mysql://db4free.net:3306/soapuitesting'
+def user = 'soapuiuser'
+def password = 'soapuipassword'
+def driver = 'com.mysql.jdbc.Driver'
+
+// Register the MySQL JDBC driver – required for Groovy to send requests to the database.
+com.eviware.soapui.support.GroovyUtils.registerJdbcDriver( driver )
+
+// Connect to the SQL instance.
+def sql = Sql.newInstance(url, user, password, driver)
+
+// Use the SQL instance.
+sql.eachRow('SELECT * FROM pet') { row -> 
+    log.info row[0]
+}
+
+// Close the SQL instance.
+sql.close()</script></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>

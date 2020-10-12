@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="209b7f61-e3d3-4b15-8960-226cbb9bef2a" activeEnvironment="Default" name="numberconversion" resourceRoot="" soapui-version="5.6.0" encryptionMode="Not encrypted" updated="3.3.2 2020-08-19T12:03:33Z" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="983e052f-e10b-4456-8955-1ae8bee39479" wsaVersion="NONE" name="NumberConversionSoapBinding" type="wsdl" bindingName="{http://www.dataaccess.com/webservicesserver/}NumberConversionSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL"><con:part><con:url>http://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL</con:url><con:content><![CDATA[<definitions name="NumberConversion" targetNamespace="http://www.dataaccess.com/webservicesserver/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.dataaccess.com/webservicesserver/">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.dataaccess.com/webservicesserver/">
+      <xs:element name="NumberToWords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ubiNum" type="xs:unsignedLong"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NumberToWordsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="NumberToWordsResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NumberToDollars">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="dNum" type="xs:decimal"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NumberToDollarsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="NumberToDollarsResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="NumberToWordsSoapRequest">
+    <part name="parameters" element="tns:NumberToWords"/>
+  </message>
+  <message name="NumberToWordsSoapResponse">
+    <part name="parameters" element="tns:NumberToWordsResponse"/>
+  </message>
+  <message name="NumberToDollarsSoapRequest">
+    <part name="parameters" element="tns:NumberToDollars"/>
+  </message>
+  <message name="NumberToDollarsSoapResponse">
+    <part name="parameters" element="tns:NumberToDollarsResponse"/>
+  </message>
+  <portType name="NumberConversionSoapType">
+    <operation name="NumberToWords">
+      <documentation>Returns the word corresponding to the positive number passed as parameter. Limited to quadrillions.</documentation>
+      <input message="tns:NumberToWordsSoapRequest"/>
+      <output message="tns:NumberToWordsSoapResponse"/>
+    </operation>
+    <operation name="NumberToDollars">
+      <documentation>Returns the non-zero dollar amount of the passed number.</documentation>
+      <input message="tns:NumberToDollarsSoapRequest"/>
+      <output message="tns:NumberToDollarsSoapResponse"/>
+    </operation>
+  </portType>
+  <binding name="NumberConversionSoapBinding" type="tns:NumberConversionSoapType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="NumberToWords">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="NumberToDollars">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="NumberConversionSoapBinding12" type="tns:NumberConversionSoapType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="NumberToWords">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="NumberToDollars">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="NumberConversion">
+    <documentation>The Number Conversion Web Service, implemented with Visual DataFlex, provides functions that convert numbers into words or dollar amounts.</documentation>
+    <port name="NumberConversionSoap" binding="tns:NumberConversionSoapBinding">
+      <soap:address location="http://www.dataaccess.com/webservicesserver/numberconversion.wso"/>
+    </port>
+    <port name="NumberConversionSoap12" binding="tns:NumberConversionSoapBinding12">
+      <soap12:address location="http://www.dataaccess.com/webservicesserver/numberconversion.wso"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://DESKTOP-2QTCMEG:8088/mockNumberConversionSoapBinding</con:endpoint><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint></con:endpoints><con:operation id="020fe049-d163-4767-9d61-d456348d47fe" isOneWay="false" action="" name="NumberToDollars" bindingOperationName="NumberToDollars" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="1f771d67-325e-4b51-a708-745581930033" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://DESKTOP-2QTCMEG:8088/mockNumberConversionSoapBinding</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:NumberToDollars>\r
+         <web:dNum>3</web:dNum>\r
+      </web:NumberToDollars>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToDollarsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation id="7d92a645-73da-4b7a-9466-e6f5a371be97" isOneWay="false" action="" name="NumberToWords" bindingOperationName="NumberToWords" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="2fa30be7-c874-4574-b2ec-cdd43658594d" name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">\r
+   <soapenv:Header/>\r
+   <soapenv:Body>\r
+      <web:NumberToWords>\r
+         <web:ubiNum>?</web:ubiNum>\r
+      </web:NumberToWords>\r
+   </soapenv:Body>\r
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToWordsRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" id="7ed03ad2-6023-4b6c-a921-e5d80c489b07" wsaVersion="NONE" name="NumberConversionSoapBinding12" type="wsdl" bindingName="{http://www.dataaccess.com/webservicesserver/}NumberConversionSoapBinding12" soapVersion="1_2" anonymous="optional" definition="http://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL"><con:part><con:url>http://www.dataaccess.com/webservicesserver/numberconversion.wso?WSDL</con:url><con:content><![CDATA[<definitions name="NumberConversion" targetNamespace="http://www.dataaccess.com/webservicesserver/" xmlns="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tns="http://www.dataaccess.com/webservicesserver/">
+  <types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://www.dataaccess.com/webservicesserver/">
+      <xs:element name="NumberToWords">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="ubiNum" type="xs:unsignedLong"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NumberToWordsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="NumberToWordsResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NumberToDollars">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="dNum" type="xs:decimal"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="NumberToDollarsResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element name="NumberToDollarsResult" type="xs:string"/>
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+    </xs:schema>
+  </types>
+  <message name="NumberToWordsSoapRequest">
+    <part name="parameters" element="tns:NumberToWords"/>
+  </message>
+  <message name="NumberToWordsSoapResponse">
+    <part name="parameters" element="tns:NumberToWordsResponse"/>
+  </message>
+  <message name="NumberToDollarsSoapRequest">
+    <part name="parameters" element="tns:NumberToDollars"/>
+  </message>
+  <message name="NumberToDollarsSoapResponse">
+    <part name="parameters" element="tns:NumberToDollarsResponse"/>
+  </message>
+  <portType name="NumberConversionSoapType">
+    <operation name="NumberToWords">
+      <documentation>Returns the word corresponding to the positive number passed as parameter. Limited to quadrillions.</documentation>
+      <input message="tns:NumberToWordsSoapRequest"/>
+      <output message="tns:NumberToWordsSoapResponse"/>
+    </operation>
+    <operation name="NumberToDollars">
+      <documentation>Returns the non-zero dollar amount of the passed number.</documentation>
+      <input message="tns:NumberToDollarsSoapRequest"/>
+      <output message="tns:NumberToDollarsSoapResponse"/>
+    </operation>
+  </portType>
+  <binding name="NumberConversionSoapBinding" type="tns:NumberConversionSoapType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="NumberToWords">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="NumberToDollars">
+      <soap:operation soapAction="" style="document"/>
+      <input>
+        <soap:body use="literal"/>
+      </input>
+      <output>
+        <soap:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <binding name="NumberConversionSoapBinding12" type="tns:NumberConversionSoapType">
+    <soap12:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <operation name="NumberToWords">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+    <operation name="NumberToDollars">
+      <soap12:operation soapAction="" style="document"/>
+      <input>
+        <soap12:body use="literal"/>
+      </input>
+      <output>
+        <soap12:body use="literal"/>
+      </output>
+    </operation>
+  </binding>
+  <service name="NumberConversion">
+    <documentation>The Number Conversion Web Service, implemented with Visual DataFlex, provides functions that convert numbers into words or dollar amounts.</documentation>
+    <port name="NumberConversionSoap" binding="tns:NumberConversionSoapBinding">
+      <soap:address location="http://www.dataaccess.com/webservicesserver/numberconversion.wso"/>
+    </port>
+    <port name="NumberConversionSoap12" binding="tns:NumberConversionSoapBinding12">
+      <soap12:address location="http://www.dataaccess.com/webservicesserver/numberconversion.wso"/>
+    </port>
+  </service>
+</definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint></con:endpoints><con:operation id="e922ed41-32f1-4314-89e8-b2fd346ae9e3" isOneWay="false" action="" name="NumberToDollars" bindingOperationName="NumberToDollars" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="27e80cdb-3c8a-49eb-941f-1d72278226e3" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.dataaccess.com/webservicesserver/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <web:NumberToDollars>\r
+         <web:dNum>?</web:dNum>\r
+      </web:NumberToDollars>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToDollarsRequest"/></con:call></con:operation><con:operation id="6d39724c-069c-4c93-b550-ede11f299b75" isOneWay="false" action="" name="NumberToWords" bindingOperationName="NumberToWords" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="e0d48b39-2fd7-4468-883c-2f81822c0ed4" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://www.dataaccess.com/webservicesserver/numberconversion.wso</con:endpoint><con:request><![CDATA[<soap:Envelope xmlns:soap="http://www.w3.org/2003/05/soap-envelope" xmlns:web="http://www.dataaccess.com/webservicesserver/">\r
+   <soap:Header/>\r
+   <soap:Body>\r
+      <web:NumberToWords>\r
+         <web:ubiNum>?</web:ubiNum>\r
+      </web:NumberToWords>\r
+   </soap:Body>\r
+</soap:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>No Authorization</con:selectedAuthProfile><con:authType>No Authorization</con:authType></con:credentials><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToWordsRequest"/></con:call></con:operation></con:interface><con:mockService id="efa9a782-7cd0-483f-af8e-32b83bea4d2b" port="8088" path="/mockNumberConversionSoapBinding" host="localhost" name="NumberConversionSoapBinding MockService"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:properties/><con:constraints><con:congestion>0</con:congestion><con:inputBandwidth>-1</con:inputBandwidth><con:outputBandwidth>-1</con:outputBandwidth><con:maxThreadPoolCapacity>20</con:maxThreadPoolCapacity><con:coreThreadPoolCapacity>5</con:coreThreadPoolCapacity><con:virtError><con:start>0</con:start><con:endless>true</con:endless></con:virtError></con:constraints><con:dataSources/><con:headerValidator type="NONE"/><con:mockOperation name="NumberToDollars" id="0ab5f71e-5a85-4c4c-b812-f6ebc26aa7a9" interface="NumberConversionSoapBinding" operation="NumberToDollars"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchXPath/><con:routeScript/><con:response name="Response 1" id="4cfcc3f9-e37d-4c32-97fb-6d349bc67339" httpResponseStatus="200" encoding="UTF-8" dataSource=""><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:NumberToDollarsResponse>
+         <web:NumberToDollarsResult>two dollars</web:NumberToDollarsResult>
+      </web:NumberToDollarsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToDollarsResponse"/></con:response><con:dispatchConfig/></con:mockOperation><con:mockOperation name="NumberToWords" id="0a8c7e90-a596-4808-ad78-9ddbbb913938" interface="NumberConversionSoapBinding" operation="NumberToWords"><con:settings/><con:defaultResponse>Response 1</con:defaultResponse><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:dispatchXPath/><con:routeScript/><con:response name="Response 1" id="01cd1599-8b6d-4505-ab0b-0352b09f8e20" httpResponseStatus="200" encoding="UTF-8" dataSource=""><con:settings/><con:responseContent><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:web="http://www.dataaccess.com/webservicesserver/">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:NumberToWordsResponse>
+         <web:NumberToWordsResult>?</web:NumberToWordsResult>
+      </web:NumberToWordsResponse>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.dataaccess.com/webservicesserver/NumberConversionSoapType/NumberToWordsResponse"/></con:response><con:dispatchConfig/></con:mockOperation></con:mockService><con:properties/><con:wssContainer/><con:databaseConnectionContainer/><con:jmsConnectionContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:reporting><con:xmlTemplates/><con:parameters/></con:reporting><con:authRepository/><con:tags/></con:soapui-project>
